@@ -29,3 +29,9 @@ Una de las grandes ventajas que nos ofrece el routing en el cliente, es la posib
 Entre las desventajas del routing en el cliente tenemos que, puede romper la funcionalidad de la página si se deshabilita JavaScript, normalmente, estas tecnologías no están diseñadas para trabajar junto con lectores de pantalla u otras herramientas de accesiblidad. Esta práctica también puede ser más difícil de mantener, porque gran parte de la funcionalidad que el protocolo HTTP y el funcionamiento de la web, dan por defecto, tiene que implementarse desde 0 en el router del cliente.
 
 Si tu aplicación se puede beneficiar de la experiencia mejorada del router en el cliente, y tienen el equipo para solventar las deficiencias, es una gran elección. Continuemos.
+
+**Configurar react-router v6**
+
+https://reactrouter.com/docs/en/v6/getting-started/installation
+
+npm install react-router-dom@6
