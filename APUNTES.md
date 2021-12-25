@@ -43,3 +43,7 @@ Las rutas del lado del cliente son el corazón de las SPA, ya que realizan actua
 **Rutas anidadas**
 
 Anidar rutas para evitar repetir el path inicial es posible mediante el componente "Route". Además es posible hacer algo similar al block content o bloques de contenido con el componente "Outlet", que carga la vista de las otras rutas por debajo del componente principal.
+ 
+**Navegación con javascript**
+
+En esta oportunidad revisamos el hook useNavigate y tambien el componente "Navigate" para redireccionar a otra vista dentro de la app.

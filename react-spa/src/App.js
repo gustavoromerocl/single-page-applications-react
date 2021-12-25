@@ -3,7 +3,9 @@ import {
   Routes, 
   Route,
   Link,
-  Outlet
+  Outlet,
+  useNavigate,
+  Navigate
 } from 'react-router-dom';
 
 let NotImplemented = () => {
@@ -27,8 +29,15 @@ let HolaVideos = () => {
 }
 
 let UsuariosOutlet = () => {
+  let navigate = useNavigate();
+
+  let redirect = () => {
+    navigate('/');
+  }
+
   return (
     <>
+      <button onClick={redirect}>Ir al home</button>
       <p>Hola desde usuarios</p>
       <Outlet/>
     </>
@@ -36,13 +45,14 @@ let UsuariosOutlet = () => {
 }
 
 function App() {
+  const isAuth = false;
   return (
     <div className="App">
       <BrowserRouter>          
         <Routes>
           <Route path="/" element={<NotImplemented/>}/>
 
-          <Route path="/usuarios" element={<UsuariosOutlet/>}>
+          <Route path="/usuarios" element={isAuth ? <Navigate to="/" /> : <UsuariosOutlet/>}>
             <Route path="registro" element={<NotImplemented/>}/>
             <Route path="login" element={<NotImplemented/>}/>
             <Route path=":id" element={<NotImplemented/>}/>
