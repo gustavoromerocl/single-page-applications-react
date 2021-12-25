@@ -51,3 +51,7 @@ En esta oportunidad revisamos el hook useNavigate y tambien el componente "Navig
 **Leyendo los parametros**
 
 Para leer los parametros enviados a través del path, usamos el hook useParams(). el el ejemplo lo usamos para imprimir el parametro guardado en el wildcard(:id). Además, revisamos el envío de información a través de los params, los cuales pudimos leer con la propiedad search del hook useLocation(). Sin embargo para poder imprimir la información es necesario usar la clase URLSearchsParams.
+
+**Ranking de rutas**
+
+Se refiere a cuando dos rutas tienen el mismo nombre, react router debe priorizar una y lo hace en base a la especificidad de esta. Por ejemplo la ruta /videos/:id podría recibir en el wild card una palabra que sea igual a otra de las rutas (videos/nuevo), en este caso se va a desplegar la menos ambigua. 
