@@ -2,7 +2,8 @@ import {
   BrowserRouter, 
   Routes, 
   Route,
-  Link
+  Link,
+  Outlet
 } from 'react-router-dom';
 
 let NotImplemented = () => {
@@ -25,26 +26,34 @@ let HolaVideos = () => {
   return <h1>Hola vídeos</h1>
 }
 
+let UsuariosOutlet = () => {
+  return (
+    <>
+      <p>Hola desde usuarios</p>
+      <Outlet/>
+    </>
+  )
+}
+
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HolaIndex/>}/>
-          <Route path="/videos" element={<HolaVideos/>}/>
-        </Routes>
-
+      <BrowserRouter>          
         <Routes>
           <Route path="/" element={<NotImplemented/>}/>
-          <Route path="/usuarios/registro" element={<NotImplemented/>}/>
-          <Route path="/usuarios/login" element={<NotImplemented/>}/>
 
-          <Route path="/usuarios/:id" element={<NotImplemented/>}/>
-          <Route path="/usuarios/:id/videos" element={<NotImplemented/>}/>
+          <Route path="/usuarios" element={<UsuariosOutlet/>}>
+            <Route path="registro" element={<NotImplemented/>}/>
+            <Route path="login" element={<NotImplemented/>}/>
+            <Route path=":id" element={<NotImplemented/>}/>
+            <Route path=":id/videos" element={<NotImplemented/>}/>
+          </Route>
 
-          <Route path="/videos" element={<NotImplemented/>}/>
-          <Route path="/videos/nuevo" element={<NotImplemented/>}/>
-          <Route path="/videos/:id" element={<NotImplemented/>}/>
+          <Route path="/videos">
+            <Route path="" element={<NotImplemented/>}/>
+            <Route path="nuevo" element={<NotImplemented/>}/>
+            <Route path=":id" element={<NotImplemented/>}/>
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>

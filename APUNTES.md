@@ -39,3 +39,7 @@ npm install react-router-dom@6
 **Definir rutas y links de navegacion**
 
 Las rutas del lado del cliente son el corazón de las SPA, ya que realizan actualizaciones en la web app con javascript sin hacer peticiones al servidor.
+
+**Rutas anidadas**
+
+Anidar rutas para evitar repetir el path inicial es posible mediante el componente "Route". Además es posible hacer algo similar al block content o bloques de contenido con el componente "Outlet", que carga la vista de las otras rutas por debajo del componente principal.
