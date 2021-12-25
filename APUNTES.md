@@ -35,3 +35,7 @@ Si tu aplicación se puede beneficiar de la experiencia mejorada del router en e
 https://reactrouter.com/docs/en/v6/getting-started/installation
 
 npm install react-router-dom@6
+
+**Definir rutas y links de navegacion**
+
+Las rutas del lado del cliente son el corazón de las SPA, ya que realizan actualizaciones en la web app con javascript sin hacer peticiones al servidor.
