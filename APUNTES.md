@@ -55,3 +55,27 @@ Para leer los parametros enviados a través del path, usamos el hook useParams()
 **Ranking de rutas**
 
 Se refiere a cuando dos rutas tienen el mismo nombre, react router debe priorizar una y lo hace en base a la especificidad de esta. Por ejemplo la ruta /videos/:id podría recibir en el wild card una palabra que sea igual a otra de las rutas (videos/nuevo), en este caso se va a desplegar la menos ambigua. 
+
+**Qué es Redux**
+
+Redux es un manejador para el estado de tu aplicación. Está diseñado como un almacén predecible, centralizado, flexible y fácil de debuggear.
+
+Para entender qué es Redux, primero necesitamos saber a qué nos referimos con el estado de una aplicación, y cómo manejamos tradicionalmente este estado, con base en esta información, iremos destacando las características y beneficios del uso de Redux.
+
+De acuerdo a la Wikipedia, decimos que un sistema es “stateful” o que tiene un estado, cuando está diseñado para recordar eventos e interacciones de usuario, a esta información recolectada en base a la interacción del usuario con el sistema, se le conoce como el estado. En una aplicación web, podemos por ejemplo recordar si el usuario ya inició sesión o no, si envió un formulario o no, si completó un proceso de bienvenida o no, en qué lugar hizo clic, si cargó una lista de recursos, si hizo una búsqueda, entre muchas otras cosas.
+
+El protocolo base para la web, el protocolo HTTP es stateless, por lo que podemos decir que es un sistema que NO está diseñado para recordar interacciones previas. Cada petición y comunicación es independiente de la otra. Entonces ¿cómo recuerdan la información las aplicaciones web?
+
+El esquema tradicional de manejo de estado en una aplicación web, está basado en cookies. Estas cookies se envían junto con cada petición que se hace al servidor, por lo que es un buen recurso para comunicar y almacenar información del estado de una aplicación. Es a través del esquema de cookies que una aplicación puede recordar si ya visitaste previamente una página, si ya iniciaste sesión, si modificaste una configuración, etc. Es decir, almacena el estado.
+
+Dado que en una aplicación con routing en el cliente, la página se recarga y actualiza localmente, las aplicaciones con routing en el cliente suelen utilizar mecanismos distintos para el almacén del estado.
+
+Para hacer la idea del estado, más tangible, imagina que tienes una estructura JSON global, y que toda la información que deseas comunicar entre tu aplicación, se guarda en este JSON. Ahí guardarías si el usuario ya inició sesión, qué usuario es, si cargo una lista de recursos, si hizo una búsqueda, si uso algunos filtros, si quiere usar dark mode o light mode, etc. Esta estructura se comparte entre todas las piezas de tu aplicación, y la llamamos el estado.
+
+Redux es eso, un almacén centralizado de la información que va produciendo el usuario al interactuar con el sistema.
+
+Para manejar la información de la aplicación, Redux propone un flujo que tienen que seguir los cambios sobre el estado, cuyo propósito es el de hacer estos cambios directos, predecibles, y que si algo falla, sea fácil identificar en dónde ocurrió este cambio o fallo.
+
+En resumen Redux se puede describir como un conjunto de dos cosas: Un almacén centralizado para el estado de la aplicación, y una arquitectura que define cómo fluye la información en la aplicación.
+
+Continuemos.
