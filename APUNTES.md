@@ -79,3 +79,29 @@ Para manejar la información de la aplicación, Redux propone un flujo que tiene
 En resumen Redux se puede describir como un conjunto de dos cosas: Un almacén centralizado para el estado de la aplicación, y una arquitectura que define cómo fluye la información en la aplicación.
 
 Continuemos.
+
+**Flujo de cambios en Redux**
+
+Imagen vía: https://redux.js.org/tutorials/essentials/part-1-overview-concepts
+
+Redux propone un esquema para el flujo de información como el que se muestra en pantalla. Veamos poco a poco cómo van pasando los cambios.
+
+La información se encuentra almacenada en el State, esta información se comparte directamente con la interfaz, para que nuestros componentes puedan usarla y mostrarla al usuario.
+
+Cuando el usuario, mientras interactúa con la vista, produce una modificación al state, el state anuncia este cambio al almacén a través de una operación a la que en Redux, se conoce como dispatch. Para anunciar el cambio, se envía un objeto que describe el cambio que queremos hacer, ejemplo: Agregar 10 a mi cuenta de banco.
+
+Una vez que esta solicitud de cambio llega al almacén, Redux hace pasar esta solicitud a través de lo que se conocen como reducers. Mismas que podemos percibir como funciones que modifican el estado.
+
+Cada reducer es una función distinta, diseñada para responder a cierto cambio. Por ejemplo, habrá un reducer para agregar 10 a mi cuenta, y uno distinto para substraer 10 a mi cuenta.
+
+Los reducers alteran al estado, y cuando esto sucede, el estado lo comunica a la vista para que la interfaz se actualice.
+
+De este diagrama podemos concluir algunas cosas importantes que nos ayudarán entender Redux. Aunque redux almacena la información y la comparte con todos, la vista no puede modificar directamente esta información, sólo puede leerla.
+
+Los reducers, son funciones que modifican el state, cualquier modificación al state debe hacerse única y exclusivamente en un reducer.
+
+Para comunicar un cambio a los reducers, se usan objetos a los que llamamos Actions, que describen el cambio a realizar. Estos objetos se envían al store a través de un proceso de nombre dispatch.
+
+Usualmente un reducer está diseñado para responder a cierto tipo de Actions, cuando el Action enviado, corresponde a un reducer, se produce un cambio en el state.
+
+Continuemos.
