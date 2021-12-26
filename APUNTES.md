@@ -145,3 +145,16 @@ Podemos tener una serie de reducers para user, y otro grupo de reducers para vid
 Por último, usualmente escucharás hablar de action creators. Estas son funciones que retornan objetos action, que describen un cambio. Se implementa este concepto, para evitar escribir los objetos action en cada componente, haciendo más fácil que modifiquemos las acciones, y evitando posibles bugs al generar estos objetos de cambio.
 
 ¡Y listo! Ahora que ya conocemos cuáles son los conceptos al hablar de Redux, continuemos en la implementación.
+
+**Instalar y configurar redux**
+
+npm install redux react-redux @reduxjs/toolkit
+
+crtl shift + p -> organiza el código y la indentación
+
+**Redux devtools**
+
+https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=es
+
+Redux DevTools -> Instalar extención de google chrome
+
