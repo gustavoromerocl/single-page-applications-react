@@ -105,3 +105,43 @@ Para comunicar un cambio a los reducers, se usan objetos a los que llamamos Acti
 Usualmente un reducer está diseñado para responder a cierto tipo de Actions, cuando el Action enviado, corresponde a un reducer, se produce un cambio en el state.
 
 Continuemos.
+
+**Terminología en Redux**
+
+Redux define una serie de términos que describen algunos de los elementos y algunas operaciones involucradas en el flujo de información. Veamos cuáles son.
+
+Hablamos del store, como una referencia al state de nuestra aplicación, es decir la información, más los reducers que pueden modificar el state. Es decir que el store es la información, y las funciones para modificar el store.
+
+Cuando queremos comunicar una modificación desde la vista al store, usamos una operación de nombre dispatch. Por lo que también podemos decir que para comunicarnos con el store debemos usar dispatch.
+
+La operación dispatch, recibe y envía un objeto que describe los cambios que queremos hacer, a estos objetos descriptores de cambios los llamamos Actions, o acciones.
+
+La estructura de estas Actions se ve de la siguiente manera
+
+{
+  type: “users/signIn”,
+  payload: { email: “urielcodigofacilito.com”  }
+}
+Todos los actions contienen una propiedad type, que identifica el tipo de evento que se realizará. Opcionalmente, pueden incluir una propiedad payload, en caso de que neceisten enviar información para que se realice el cambio. En este ejemplo tenemos una modificación correspondiente al login de un usuario, junto con el usuario que ingresó.
+
+Cuando el store recibe un action para realizar un cambio, envía este objeto a los reducers del store, a las funciones que realizan los cambios. Las funciones reducers, usualmente evalúan la propiedad type de la action, para definir si harán una modificación, o dejarán pasar el cambio. Normalmente, sólo un reducer aplica modificaciones para cada tipo distinto de action que existe.
+
+Los reducers se caracterizan por ser funciones puras, es decir, funciones que no producen efectos secundarios y manejan estructuras inmutables. Esto quiere decir que dentro de un reducer, no puedes hacer peticiones AJAX, usar timers, intervalos, o modificar variables externas al reducer, ya que todas estas operaciones se considera que producen efectos secundarios.
+
+Alternativamente puedes pensar en las funciones puras como funciones que, si son llamadas con los mismos argumentos, siempre producen los mismos resultados. Cuando involucramos valores externos a la función en su operación, no podemos asegurar que la función siempre retorne el mismo resultado, por lo que ya no se consideran funciones puras.
+
+El state en Redux también es inmutable, es decir, no se puede modificar. Para ser actualizado, el state debe ser reemplazado completamente. Internamente React y Redux podrán detectar cuáles han sido los cambios en el nuevo reemplazo, para actualizar la UI.
+
+En términos prácticos podemos decir que aunque los reducers son funciones que modifican el estado, en realidad estas funciones lo reemplazan. De hecho, cualquier cosas que retorna un reducer se usa para sustituir el state.
+
+Es común que en una aplicación grande, el state se subdivida en porciones, delegando a cada división del state, un reducer distinto. A estas divisiones las llamamos slices. En un state como el siguiente:
+
+{
+  user: {}
+  videos: []
+}
+Podemos tener una serie de reducers para user, y otro grupo de reducers para videos.
+
+Por último, usualmente escucharás hablar de action creators. Estas son funciones que retornan objetos action, que describen un cambio. Se implementa este concepto, para evitar escribir los objetos action en cada componente, haciendo más fácil que modifiquemos las acciones, y evitando posibles bugs al generar estos objetos de cambio.
+
+¡Y listo! Ahora que ya conocemos cuáles son los conceptos al hablar de Redux, continuemos en la implementación.
