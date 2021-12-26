@@ -4,8 +4,6 @@ import {
   Route,
   Link,
   Outlet,
-  useNavigate,
-  Navigate,
   useParams,
   useLocation
 } from 'react-router-dom';
@@ -15,6 +13,7 @@ import {
 } from 'react-redux';
 
 import { store } from './store';
+import SignIn from './users/SignIn';
 
 let NotImplemented = () => {
   return (
@@ -37,24 +36,9 @@ let Error404 = () => {
   )
 }
 
-let HolaIndex = () => {
-  return <h1>Hola index</h1>
-}
-
-let HolaVideos = () => {
-  return <h1>Hola vídeos</h1>
-}
-
 let UsuariosOutlet = () => {
-  let navigate = useNavigate();
-
-  let redirect = () => {
-    navigate('/');
-  }
-
   return (
     <>
-      <button onClick={redirect}>Ir al home</button>
       <p>Hola desde usuarios</p>
       <Outlet />
     </>
@@ -87,7 +71,6 @@ let VideoShow = () => {
 }
 
 function App() {
-  const isAuth = false;
   return (
     <div className="App">
       <BrowserRouter>
@@ -96,9 +79,9 @@ function App() {
             <Route path="/" element={<NotImplemented />} />
             <Route path="*" element={<Error404 />} />
 
-            <Route path="/usuarios" element={isAuth ? <Navigate to="/" /> : <UsuariosOutlet />}>
+            <Route path="/usuarios" element={<UsuariosOutlet />}>
               <Route path="registro" element={<NotImplemented />} />
-              <Route path="login" element={<NotImplemented />} />
+              <Route path="login" element={<SignIn />} />
               <Route path=":id" element={<NotImplemented />} />
               <Route path=":id/videos" element={<NotImplemented />} />
             </Route>
