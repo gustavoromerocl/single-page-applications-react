@@ -158,3 +158,7 @@ https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfk
 
 Redux DevTools -> Instalar extención de google chrome
 
+**Redux Thunks**
+
+Los thunks son estados con operaciones asyncronas, reduxjs tools puede agregar thunks a su cartera de reducers y ejecutar acciones según el estado de la promesa que se configure en el thunk (createAsyncThunk)
+

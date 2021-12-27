@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { logOut, signIn } from '../store'
+import { logOut, signUp } from '../store/user'
 
 let SignIn = (props) => {
     let dispatch = useDispatch();
@@ -10,9 +10,11 @@ let SignIn = (props) => {
 
     let doSignIn = () => {
         dispatch(
-            signIn({
-                email: 'gandresrp@gmail.com',
-                jwtToken: 'daskjdh453kjsldkj%&4'
+            signUp({
+                credentials: {
+                    email: 'gandresrp@gmail.com',
+                    jwtToken: 'daskjdh453kjsldkj%&4'
+                }
             })
         )
     }
