@@ -13,7 +13,8 @@ let SignIn = (props) => {
             signUp({
                 credentials: {
                     email: 'gandresrp@gmail.com',
-                    jwtToken: 'daskjdh453kjsldkj%&4'
+                    password: '123456',
+                    username: 'romero'
                 }
             })
         )

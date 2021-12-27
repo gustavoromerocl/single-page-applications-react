@@ -56,7 +56,7 @@ Para leer los parametros enviados a través del path, usamos el hook useParams()
 
 Se refiere a cuando dos rutas tienen el mismo nombre, react router debe priorizar una y lo hace en base a la especificidad de esta. Por ejemplo la ruta /videos/:id podría recibir en el wild card una palabra que sea igual a otra de las rutas (videos/nuevo), en este caso se va a desplegar la menos ambigua. 
 
-**Qué es Redux**
+# Qué es Redux
 
 Redux es un manejador para el estado de tu aplicación. Está diseñado como un almacén predecible, centralizado, flexible y fácil de debuggear.
 
@@ -162,3 +162,15 @@ Redux DevTools -> Instalar extención de google chrome
 
 Los thunks son estados con operaciones asyncronas, reduxjs tools puede agregar thunks a su cartera de reducers y ejecutar acciones según el estado de la promesa que se configure en el thunk (createAsyncThunk)
 
+**Registro de usuarios**
+
+npm install axios
+
+se indica la palabra reservada await para esperar a que la promesa se resuelva y luego asignar el resultado a la variable, si no se indica, se asigna la promesa como objeto a la variable
+
+API SERVICE
+
+repositorio:
+https://github.com/codigofacilito/videos-api
+
+https://api.video/

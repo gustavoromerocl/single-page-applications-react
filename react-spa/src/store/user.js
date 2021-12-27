@@ -2,9 +2,16 @@ import {
     createAsyncThunk,
     createSlice
 } from '@reduxjs/toolkit';
+import Axios from 'axios';
+import apiConfig from '../config/api';
 
 export const signUp = createAsyncThunk('user/signUp', async ({credentials}) => {
-    return credentials;
+    let response = await Axios.post(`${apiConfig.domain}/users`, { // 
+        user: credentials
+    })
+    console.log(response);
+
+    return response.data.user;
 })
 
 let userSlice = createSlice({
