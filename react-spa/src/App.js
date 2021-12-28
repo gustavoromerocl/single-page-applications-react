@@ -5,14 +5,16 @@ import {
   Link,
   Outlet,
   useParams,
-  useLocation
+  useLocation,
+  useNavigate
 } from 'react-router-dom';
 
 import {
-  Provider
+  Provider, useDispatch, useSelector
 } from 'react-redux';
 
 import { store } from './store';
+import { logOut } from './store/user';
 import SignIn from './users/SignIn';
 
 let NotImplemented = () => {
@@ -37,9 +39,22 @@ let Error404 = () => {
 }
 
 let UsuariosOutlet = () => {
+  let user = useSelector(state => state.user.user)
+  let dispatch = useDispatch();
+  let navigate = useNavigate();
+
+  let doLogOut = () => {
+    dispatch(
+      logOut()
+    )
+    navigate('/usuarios/login');
+  }
+
   return (
     <>
-      <p>Hola desde usuarios</p>
+      {
+        user && <button onClick={doLogOut}>Cerrar sesión</button>
+      }
       <Outlet />
     </>
   )

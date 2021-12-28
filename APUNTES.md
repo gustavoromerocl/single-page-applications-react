@@ -174,3 +174,13 @@ repositorio:
 https://github.com/codigofacilito/videos-api
 
 https://api.video/
+
+**Inicio de sesión**
+
+npm install react-hook-form
+
+El hook react-hook-form toma los datos enviados en el formulario y los envía a la función que recibe como parámetro
+
+**Cerrar sesión**
+
+&& -> es usado para mostrar el elemento de la derecha si lo que recibe en la izquierda es truthy
