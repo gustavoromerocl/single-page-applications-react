@@ -5,6 +5,25 @@ import {
 import Axios from 'axios';
 import apiConfig from '../config/api';
 
+export const loadVideos = createAsyncThunk('videos/load', async(page=1, thunkAPI) => {
+    let token;
+    try{
+        token = thunkAPI.getState().user.user.jwtToken;
+    }catch{
+        return Promise.reject('No hay token');
+    }
+    
+    if (!token) return Promise.reject('No hay token');
+
+    let response = await Axios.get(`${apiConfig.domain}/videos/page=${page}`, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+
+    return response.data;
+})
+
 let videosSlice = createSlice({
     name: 'videos',
     initialState: {
@@ -16,7 +35,18 @@ let videosSlice = createSlice({
         }
     },
     reducers: {},
-    extraReducers: {}
+    extraReducers: {
+        [loadVideos.fulfilled]: (state, action) => {
+            let {currentPage, nextPage, prevPage, total} = action.payload
+            state.data = {
+                currentPage,
+                nextPage,
+                prevPage,
+                total,
+                videos: state.data.videos.concat(action.payload.videos)
+            }
+        }
+    }
 });
 
 export default videosSlice.reducer
