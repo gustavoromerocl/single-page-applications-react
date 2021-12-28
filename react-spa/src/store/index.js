@@ -8,11 +8,13 @@ import {
     persistReducer
 } from 'redux-persist';
 
-import userSlice from './user';
+import userReducer from './user';
+import videosReducer from './videos';
 import storage from 'redux-persist/lib/storage';
 
 const reducer = combineReducers({
-    user: userSlice
+    user: userReducer,
+    videos: videosReducer
 });
 
 const persistConfig = {
