@@ -15,7 +15,7 @@ export const loadVideos = createAsyncThunk('videos/load', async(page=1, thunkAPI
     
     if (!token) return Promise.reject('No hay token');
 
-    let response = await Axios.get(`${apiConfig.domain}/videos/page=${page}`, {
+    let response = await Axios.get(`${apiConfig.domain}/videos?page=${page}`, {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -27,7 +27,7 @@ export const loadVideos = createAsyncThunk('videos/load', async(page=1, thunkAPI
 let videosSlice = createSlice({
     name: 'videos',
     initialState: {
-        status: '',
+        status: 'not loaded',
         data: {
             videos: [],
             nextPage: 1,
@@ -37,7 +37,8 @@ let videosSlice = createSlice({
     reducers: {},
     extraReducers: {
         [loadVideos.fulfilled]: (state, action) => {
-            let {currentPage, nextPage, prevPage, total} = action.payload
+            let {currentPage, nextPage, prevPage, total} = action.payload;
+            state.status = 'success'
             state.data = {
                 currentPage,
                 nextPage,

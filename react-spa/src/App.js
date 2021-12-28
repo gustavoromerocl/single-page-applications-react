@@ -18,6 +18,7 @@ import { logOut } from './store/user';
 import SignIn from './users/SignIn';
 import { PersistGate } from 'redux-persist/integration/react';
 import SignUp from './users/SignUp';
+import Videos from './videos/Videos';
 
 let NotImplemented = () => {
   return (
@@ -106,7 +107,7 @@ function App() {
               </Route>
 
               <Route path="/videos">
-                <Route path="" element={<NotImplemented />} />
+                <Route path="" element={<Videos />} />
                 <Route path="nuevo" element={<NotImplemented />} />
                 <Route path=":id" element={<NotImplemented />} />
                 <Route path=":id/:wildcard" element={<VideoShow />} />
