@@ -184,3 +184,11 @@ El hook react-hook-form toma los datos enviados en el formulario y los envía a 
 **Cerrar sesión**
 
 && -> es usado para mostrar el elemento de la derecha si lo que recibe en la izquierda es truthy
+
+**Persistencia de datos**
+
+npm install redux-persist
+
+**blacklist y whiteList redux-persist**
+
+Son propiedades que nos permiten indicar que se guarda y que no se guarda en el storage de persistencia de datos.

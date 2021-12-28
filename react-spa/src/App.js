@@ -13,9 +13,10 @@ import {
   Provider, useDispatch, useSelector
 } from 'react-redux';
 
-import { store } from './store';
+import { persistor, store } from './store';
 import { logOut } from './store/user';
 import SignIn from './users/SignIn';
+import { PersistGate } from 'redux-persist/integration/react';
 
 let NotImplemented = () => {
   return (
@@ -90,24 +91,28 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Provider store={store}>
-          <Routes>
-            <Route path="/" element={<NotImplemented />} />
-            <Route path="*" element={<Error404 />} />
+          <PersistGate loading={null} persistor={persistor}>
 
-            <Route path="/usuarios" element={<UsuariosOutlet />}>
-              <Route path="registro" element={<NotImplemented />} />
-              <Route path="login" element={<SignIn />} />
-              <Route path=":id" element={<NotImplemented />} />
-              <Route path=":id/videos" element={<NotImplemented />} />
-            </Route>
+            <Routes>
+              <Route path="/" element={<NotImplemented />} />
+              <Route path="*" element={<Error404 />} />
 
-            <Route path="/videos">
-              <Route path="" element={<NotImplemented />} />
-              <Route path="nuevo" element={<NotImplemented />} />
-              <Route path=":id" element={<NotImplemented />} />
-              <Route path=":id/:wildcard" element={<VideoShow />} />
-            </Route>
-          </Routes>
+              <Route path="/usuarios" element={<UsuariosOutlet />}>
+                <Route path="registro" element={<NotImplemented />} />
+                <Route path="login" element={<SignIn />} />
+                <Route path=":id" element={<NotImplemented />} />
+                <Route path=":id/videos" element={<NotImplemented />} />
+              </Route>
+
+              <Route path="/videos">
+                <Route path="" element={<NotImplemented />} />
+                <Route path="nuevo" element={<NotImplemented />} />
+                <Route path=":id" element={<NotImplemented />} />
+                <Route path=":id/:wildcard" element={<VideoShow />} />
+              </Route>
+            </Routes>
+
+          </PersistGate>
         </Provider>
       </BrowserRouter>
     </div>
