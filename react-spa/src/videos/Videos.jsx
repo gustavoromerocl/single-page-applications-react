@@ -14,7 +14,12 @@ let Videos = (props) => {
 
     return (
         <div>
-            {videosState.status}
+            {videosState.data.videos.map(video => (
+                <div key={video.id}>
+                    <h2>{video.title}</h2>
+                </div>
+            ))
+            }
         </div>
     )
 }
