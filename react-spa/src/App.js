@@ -19,6 +19,7 @@ import SignIn from './users/SignIn';
 import { PersistGate } from 'redux-persist/integration/react';
 import SignUp from './users/SignUp';
 import Videos from './videos/Videos';
+import VideosForm from './videos/VideosForm';
 
 let NotImplemented = () => {
   return (
@@ -108,7 +109,7 @@ function App() {
 
               <Route path="/videos">
                 <Route path="" element={<Videos />} />
-                <Route path="nuevo" element={<NotImplemented />} />
+                <Route path="nuevo" element={<VideosForm />} />
                 <Route path=":id" element={<NotImplemented />} />
                 <Route path=":id/:wildcard" element={<VideoShow />} />
               </Route>
