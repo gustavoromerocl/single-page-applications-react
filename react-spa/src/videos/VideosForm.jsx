@@ -1,11 +1,12 @@
 import React from 'react';
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
-import { loadVideos } from '../store/videos';
+import { useDispatch } from 'react-redux';
+import { createVideo } from '../store/videos';
 
 let VideosForm = (props) => {
     let {register, handleSubmit} = useForm();
+    let dispatch = useDispatch();
+
     let onSubmit = async (video) => {
         /* console.log(video); */
         let formData = new FormData();
@@ -14,6 +15,10 @@ let VideosForm = (props) => {
         formData.append('video', video.video[0]);
 
         console.log(formData);
+
+        dispatch(
+            createVideo(formData)
+        )
     }
     return (
         <div>
