@@ -20,6 +20,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import SignUp from './users/SignUp';
 import Videos from './videos/Videos';
 import VideosForm from './videos/VideosForm';
+import { VideoShow } from './videos/VideoShow';
 
 let NotImplemented = () => {
   return (
@@ -64,31 +65,6 @@ let UsuariosOutlet = () => {
   )
 }
 
-let VideoShow = () => {
-  //let params = useParams();  hook que recibe los params en el path del routing
-  let { id, wildcard } = useParams(); //destructuring, extrae el valor del objeto json
-  console.log(id, wildcard);
-
-  let location = useLocation();
-  console.log(location.search);
-
-  //http://localhost:3000/videos/15/20?nombre=Gustavo&apellido=Romero
-  let queryParams = new URLSearchParams(location.search);
-  console.log(queryParams);
-
-  //de esta forma pordemos obtener los params recibidos como objetos tipo hash con clave y valor
-  for (let p of queryParams) {
-    //console.log(p)
-    console.log(p[0]);
-    console.log(p[1]);
-  };
-
-
-  return (
-    <p>{id}</p>
-  )
-}
-
 function App() {
   return (
     <div className="App">
@@ -110,8 +86,7 @@ function App() {
               <Route path="/videos">
                 <Route path="" element={<Videos />} />
                 <Route path="nuevo" element={<VideosForm />} />
-                <Route path=":id" element={<NotImplemented />} />
-                <Route path=":id/:wildcard" element={<VideoShow />} />
+                <Route path=":id" element={<VideoShow />} />
               </Route>
             </Routes>
 
