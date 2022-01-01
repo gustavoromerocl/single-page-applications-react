@@ -220,3 +220,7 @@ Continuemos.
 npm install styled-components
 
 Es una librería que asigna estilos mediante tags templates y de forma interna realiza la conversión y asignación de los estilos a las etiquetas.
+
+**Tabajando con props**
+
+Es posible pasar porps a nuestras etiquetas, para definir sobre el estilo dependiendo de si es truthy o falsy 
