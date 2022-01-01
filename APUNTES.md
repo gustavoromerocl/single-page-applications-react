@@ -56,7 +56,9 @@ Para leer los parametros enviados a través del path, usamos el hook useParams()
 
 Se refiere a cuando dos rutas tienen el mismo nombre, react router debe priorizar una y lo hace en base a la especificidad de esta. Por ejemplo la ruta /videos/:id podría recibir en el wild card una palabra que sea igual a otra de las rutas (videos/nuevo), en este caso se va a desplegar la menos ambigua. 
 
-# Qué es Redux
+# Autenticación de usuarios 
+
+**Qué es Redux**
 
 Redux es un manejador para el estado de tu aplicación. Está diseñado como un almacén predecible, centralizado, flexible y fácil de debuggear.
 
@@ -192,3 +194,23 @@ npm install redux-persist
 **blacklist y whiteList redux-persist**
 
 Son propiedades que nos permiten indicar que se guarda y que no se guarda en el storage de persistencia de datos.
+
+# Styled components
+
+**CSS in JS [React Single Page Apps]**
+
+CSS in JS es el concepto que describe a distintas estrategias que buscan solucionar algunos problemas de integración de CSS con aplicaciones de JavaScript, usando una combinación de JavaScript y CSS, para redactar los estilos, en archivos de JavaScript.
+
+En aplicaciones de React, las estrategias de CSS in JS son principalmente útiles, especialmente porque CSS no fue diseñado con una arquitectura de componentes en mente, como la que usan las aplicaciones de React.
+
+Recordemos que la parte central de las aplicaciones de React son los componentes. Los componentes encapsulan toda la funcionalidad en elementos con los que podemos ir construyendo la aplicación, como si fueran piezas de lego.
+
+El problema de CSS con los componentes es que, CSS es de scope global. Por lo que una misma clase podría repetirse entre dos componentes y cada uno alterar el estilo del otro. CSS no nos permite encapsular los estilos de una funcionalidad en un componente, sin asegurarnos que estos estilos puedan colisionar con otros elementos.
+
+Para solucionar eso, las estrategias de CSS in JS suelen ofrecer formas de modularizar CSS, estrategias para evitar el scope global, entre otros. Todo esto a través de JavaScript.
+
+Las desventajas del enfoque de CSS in JS, son varias, por un lado, delegamos funcionalidad que CSS nos da por defecto, a JavaScript para que nosotros o una librería lo programemos, este intercambio puede producir bugs en nuestros diseños. Por otro lado, las estrategias de CSS in JS suelen eliminar los beneficios de la cascada de CSS, no entraré en mucho detalle al respecto porque requeriría un nivel de comprensión intermedio de lo que es la cascada en CSS.
+
+Por ahora es importante recordar que estas estrategias viene con ciertos defectos, y que deben usarse en escenarios donde los beneficios de integrar CSS en JavaScript, han sido detectados y están bien definidos.
+
+Continuemos.
