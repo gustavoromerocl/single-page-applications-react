@@ -228,3 +228,7 @@ Es posible pasar porps a nuestras etiquetas, para definir sobre el estilo depend
 **Extendiendo estilos de otros componentes**
 
 Para realizarlo styles posee un método del mismo nombre que recibe como parametro el componente base desde el que se construira uno nuevo. EL componente que se recibe puede ser un creado por styled components u otro proveniente desde otra fuente, como en el ejemplo que decoramos el componente link de react router dom
+
+**Props y atributos**
+
+Las ṕrops de lso componentes base se conservan y pueden utilizar en los atributos de las eqtiquetas, styled components ofrece dentro de su sintaxis el método attrs que recibe las props y las asigna a los atributos en una función

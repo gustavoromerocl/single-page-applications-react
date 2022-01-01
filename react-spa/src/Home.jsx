@@ -33,6 +33,14 @@ let AppLink = styled(Link)`
     text-transform: uppercase;
 `;
 
+let AppInput = styled.input.attrs((props) => {
+    return {
+        type: props.type ? props.type : "text"
+    }
+})`
+    border: solid 1px red;
+`;
+
 export const Home = () => {
     return (
         <div>
@@ -42,6 +50,7 @@ export const Home = () => {
                 <Button >click me</Button>
                 <PrimaryButton>Extended button</PrimaryButton>
                 <AppLink to="/videos">ir a Videos</AppLink>
+                <AppInput placeholder="Escribe aquí" required/>
             </Example>
         </div>
     )
