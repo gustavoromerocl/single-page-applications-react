@@ -5,7 +5,34 @@ import {
 import Axios from 'axios';
 import apiConfig from '../config/api';
 
-export const getVideo = createAsyncThunk('videos/get', async(videoId, thunkAPI) => {
+let innerLoadVideos = async (path, thunkAPI) => {
+    let token;
+    try{
+        token = thunkAPI.getState().user.user.jwtToken;
+    }catch{
+        return Promise.reject('No hay token');
+    }
+    
+    if (!token) return Promise.reject('No hay token');
+
+    let response = await Axios.get(`${apiConfig.domain}/${path}`, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+    
+    return response.data;
+} 
+
+export const loadVideos = createAsyncThunk('videos/load', async(page=1, thunkAPI) => {
+    return innerLoadVideos(`videos?page=${page}`, thunkAPI)
+});
+
+export const loadVideosForUser = createAsyncThunk('videos/user/load', async (args,thunkAPI) => {
+    return innerLoadVideos(`users/videos`, thunkAPI)
+});
+
+export const getVideo = createAsyncThunk('videos/get', async (videoId, thunkAPI) => {
     let token;
     try{
         token = thunkAPI.getState().user.user.jwtToken;
@@ -24,24 +51,6 @@ export const getVideo = createAsyncThunk('videos/get', async(videoId, thunkAPI) 
     return response.data;
 });
 
-export const loadVideos = createAsyncThunk('videos/load', async(page=1, thunkAPI) => {
-    let token;
-    try{
-        token = thunkAPI.getState().user.user.jwtToken;
-    }catch{
-        return Promise.reject('No hay token');
-    }
-    
-    if (!token) return Promise.reject('No hay token');
-
-    let response = await Axios.get(`${apiConfig.domain}/videos?page=${page}`, {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    })
-
-    return response.data;
-});
 
 export const createVideo = createAsyncThunk('videos/create', async(videoData, thunkAPI) => {
     let token;
@@ -89,6 +98,9 @@ let videosSlice = createSlice({
         [getVideo.fulfilled]: (state, action) => {
             state.status = 'success';
             state.currentVideo = action.payload;
+        },
+        [loadVideosForUser.fulfilled]: (state, action) => {
+            state.data.videos = action.payload;
         }
     }
 });

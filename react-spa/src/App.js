@@ -21,6 +21,7 @@ import SignUp from './users/SignUp';
 import Videos from './videos/Videos';
 import VideosForm from './videos/VideosForm';
 import { VideoShow } from './videos/VideoShow';
+import { Profile } from './users/Profile';
 
 let NotImplemented = () => {
   return (
@@ -79,7 +80,7 @@ function App() {
               <Route path="/usuarios" element={<UsuariosOutlet />}>
                 <Route path="registro" element={<SignUp />} />
                 <Route path="login" element={<SignIn />} />
-                <Route path=":id" element={<NotImplemented />} />
+                <Route path="miperfil" element={<Profile />} />
                 <Route path=":id/videos" element={<NotImplemented />} />
               </Route>
 

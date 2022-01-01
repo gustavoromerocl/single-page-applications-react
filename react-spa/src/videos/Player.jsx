@@ -11,7 +11,7 @@ let Player = ({video}) => {
     useEffect(() => {
         if(!player.current){
             player.current = new PlayerSdk(`#app-player-${video.id}`);
-            console.log(player.current);
+            //console.log(player.current);
             player.current.mute();
             player.current.play();
             player.current.setLoop(true);

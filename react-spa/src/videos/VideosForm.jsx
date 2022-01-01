@@ -14,7 +14,7 @@ let VideosForm = (props) => {
         formData.append('title', video.title);
         formData.append('video', video.video[0]);
 
-        console.log(formData);
+        /* console.log(formData); */
 
         dispatch(
             createVideo(formData)

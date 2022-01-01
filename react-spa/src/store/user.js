@@ -9,7 +9,7 @@ export const signUp = createAsyncThunk('user/signUp', async ({credentials}) => {
     let response = await Axios.post(`${apiConfig.domain}/users`, { // 
         user: credentials
     })
-    console.log(response);
+    //console.log(response);
 
     return response.data.user;
 })
@@ -18,7 +18,7 @@ export const signIn = createAsyncThunk('user/signIn', async ({credentials}) => {
     let response = await Axios.post(`${apiConfig.domain}/users/signin`, { // 
         user: credentials
     })
-    console.log(response);
+    //console.log(response);
 
     return response.data.user;
 })
