@@ -224,3 +224,7 @@ Es una librería que asigna estilos mediante tags templates y de forma interna r
 **Tabajando con props**
 
 Es posible pasar porps a nuestras etiquetas, para definir sobre el estilo dependiendo de si es truthy o falsy 
+
+**Extendiendo estilos de otros componentes**
+
+Para realizarlo styles posee un método del mismo nombre que recibe como parametro el componente base desde el que se construira uno nuevo. EL componente que se recibe puede ser un creado por styled components u otro proveniente desde otra fuente, como en el ejemplo que decoramos el componente link de react router dom
