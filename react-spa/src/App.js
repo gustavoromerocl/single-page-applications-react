@@ -22,6 +22,7 @@ import Videos from './videos/Videos';
 import VideosForm from './videos/VideosForm';
 import { VideoShow } from './videos/VideoShow';
 import { Profile } from './users/Profile';
+import { Home } from './Home';
 
 let NotImplemented = () => {
   return (
@@ -74,7 +75,7 @@ function App() {
           <PersistGate loading={null} persistor={persistor}>
 
             <Routes>
-              <Route path="/" element={<NotImplemented />} />
+              <Route path="/" element={<Home />} />
               <Route path="*" element={<Error404 />} />
 
               <Route path="/usuarios" element={<UsuariosOutlet />}>

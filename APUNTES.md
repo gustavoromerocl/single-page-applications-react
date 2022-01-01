@@ -214,3 +214,9 @@ Las desventajas del enfoque de CSS in JS, son varias, por un lado, delegamos fun
 Por ahora es importante recordar que estas estrategias viene con ciertos defectos, y que deben usarse en escenarios donde los beneficios de integrar CSS en JavaScript, han sido detectados y están bien definidos.
 
 Continuemos.
+
+**Fundamentos y configuracion de styled components**
+
+npm install styled-components
+
+Es una librería que asigna estilos mediante tags templates y de forma interna realiza la conversión y asignación de los estilos a las etiquetas.
