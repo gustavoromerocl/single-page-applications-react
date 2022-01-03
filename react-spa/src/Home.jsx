@@ -1,6 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+let linkStyle = css`
+    font-size: 1.5em;
+`;
 
 //string templates o tagged templates
 let Example = styled.div` 
@@ -45,6 +49,7 @@ let InpuText = styled.input`
 let PrimaryButton = styled(Button)`
     background-color: blue;
     border: 0;
+    ${linkStyle}
 `;
 
 let AppLink = styled(Link)`

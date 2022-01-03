@@ -241,4 +241,8 @@ Al igual como otros pre-procesadores como SAAS, styled component puede anidar lo
 
 & selector{ styles: attrr}
 
-de la misma forma se puede usar operadores como hover, after, etc. Tambien cuenta con un condicional como se aprecia en el ejemplo: .class &{} en este caso, el ampersan se asigan despues del selector y solo si la etiquieta padre tiene la clase indicada se aplican los estilos
+de la misma forma se puede usar operadores como hover, after, etc. Tambien cuenta con un condicional como se aprecia en el ejemplo: .class &{} en este caso, el ampersan se asigan despues del selector y solo si la etiquieta padre tiene la clase indicada se aplican los estilos.
+
+**Bloques reusables de CSS**
+
+Al igual que los @mixins de saas, es posible definir un bloque de estilso y reutilizarlos en otros componentes. Para ello se utiliza el helper css de styled components.
