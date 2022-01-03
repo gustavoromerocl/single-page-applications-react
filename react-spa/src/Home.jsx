@@ -6,7 +6,27 @@ import styled from 'styled-components'
 let Example = styled.div` 
     height: 200px;
     transition: all 2s;
-    padding: 50px
+    padding: 50px;
+    
+    & a{
+        color: red;
+    }
+
+    &::after{
+
+    }
+
+    &:hover{
+        background-color: black;
+    }
+
+    &.important{
+        background-color: yellow;
+    }
+
+    & > div{
+
+    }
 `;
 
 let Button = styled.button`
@@ -39,13 +59,17 @@ let AppInput = styled.input.attrs((props) => {
     }
 })`
     border: solid 1px red;
+    .important &{
+        background-color: pink;
+    }
 `;
 
 export const Home = () => {
     return (
         <div>
-            <Example>
-                <h1>Hola mundo</h1>
+            <Example className='important'>
+                <a>hola</a>
+                <h1 className='title'>Hola mundo</h1>
                 <InpuText ></InpuText>
                 <Button >click me</Button>
                 <PrimaryButton>Extended button</PrimaryButton>

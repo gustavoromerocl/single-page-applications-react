@@ -217,6 +217,8 @@ Continuemos.
 
 **Fundamentos y configuracion de styled components**
 
+https://styled-components.com/
+
 npm install styled-components
 
 Es una librería que asigna estilos mediante tags templates y de forma interna realiza la conversión y asignación de los estilos a las etiquetas.
@@ -232,3 +234,11 @@ Para realizarlo styles posee un método del mismo nombre que recibe como paramet
 **Props y atributos**
 
 Las ṕrops de lso componentes base se conservan y pueden utilizar en los atributos de las eqtiquetas, styled components ofrece dentro de su sintaxis el método attrs que recibe las props y las asigna a los atributos en una función
+
+**Nesting**
+
+Al igual como otros pre-procesadores como SAAS, styled component puede anidar los estilos usando el operador ampersan:
+
+& selector{ styles: attrr}
+
+de la misma forma se puede usar operadores como hover, after, etc. Tambien cuenta con un condicional como se aprecia en el ejemplo: .class &{} en este caso, el ampersan se asigan despues del selector y solo si la etiquieta padre tiene la clase indicada se aplican los estilos
