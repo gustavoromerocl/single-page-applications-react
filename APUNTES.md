@@ -246,3 +246,8 @@ de la misma forma se puede usar operadores como hover, after, etc. Tambien cuent
 **Bloques reusables de CSS**
 
 Al igual que los @mixins de saas, es posible definir un bloque de estilso y reutilizarlos en otros componentes. Para ello se utiliza el helper css de styled components.
+
+
+**Configurando un tema**
+
+Es posible definir un tema para alojar todos los estilos principales del layout de nuestra app en un mismo archivo, para ello styled components nos otorga un provider llamado ThemeProvider, el cual le hace wrapper a la app para entregar los estilos a los componentes que esten dentro del tag.

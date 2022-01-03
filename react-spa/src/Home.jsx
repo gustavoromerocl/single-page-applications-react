@@ -11,6 +11,7 @@ let Example = styled.div`
     height: 200px;
     transition: all 2s;
     padding: 50px;
+    background-color: ${ ({theme})=> theme.colors.accent };
     
     & a{
         color: red;
@@ -72,7 +73,7 @@ let AppInput = styled.input.attrs((props) => {
 export const Home = () => {
     return (
         <div>
-            <Example className='important'>
+            <Example >
                 <a>hola</a>
                 <h1 className='title'>Hola mundo</h1>
                 <InpuText ></InpuText>

@@ -23,6 +23,8 @@ import VideosForm from './videos/VideosForm';
 import { VideoShow } from './videos/VideoShow';
 import { Profile } from './users/Profile';
 import { Home } from './Home';
+import { ThemeProvider } from 'styled-components';
+import theme from './theme';
 
 let NotImplemented = () => {
   return (
@@ -73,25 +75,25 @@ function App() {
       <BrowserRouter>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
+            <ThemeProvider theme={theme}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="*" element={<Error404 />} />
 
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="*" element={<Error404 />} />
+                <Route path="/usuarios" element={<UsuariosOutlet />}>
+                  <Route path="registro" element={<SignUp />} />
+                  <Route path="login" element={<SignIn />} />
+                  <Route path="miperfil" element={<Profile />} />
+                  <Route path=":id/videos" element={<NotImplemented />} />
+                </Route>
 
-              <Route path="/usuarios" element={<UsuariosOutlet />}>
-                <Route path="registro" element={<SignUp />} />
-                <Route path="login" element={<SignIn />} />
-                <Route path="miperfil" element={<Profile />} />
-                <Route path=":id/videos" element={<NotImplemented />} />
-              </Route>
-
-              <Route path="/videos">
-                <Route path="" element={<Videos />} />
-                <Route path="nuevo" element={<VideosForm />} />
-                <Route path=":id" element={<VideoShow />} />
-              </Route>
-            </Routes>
-
+                <Route path="/videos">
+                  <Route path="" element={<Videos />} />
+                  <Route path="nuevo" element={<VideosForm />} />
+                  <Route path=":id" element={<VideoShow />} />
+                </Route>
+              </Routes>
+            </ThemeProvider>
           </PersistGate>
         </Provider>
       </BrowserRouter>
