@@ -251,3 +251,7 @@ Al igual que los @mixins de saas, es posible definir un bloque de estilso y reut
 **Configurando un tema**
 
 Es posible definir un tema para alojar todos los estilos principales del layout de nuestra app en un mismo archivo, para ello styled components nos otorga un provider llamado ThemeProvider, el cual le hace wrapper a la app para entregar los estilos a los componentes que esten dentro del tag.
+
+**Layout de la app**
+
+El layout es el template base sobre el que se cargará la app, ene ste caso mediante la propiedad grid-template-rows alineamos el nav y footer
