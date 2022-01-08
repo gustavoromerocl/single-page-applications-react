@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ReactSVG } from 'react-svg';
 
 export default {
     colors: {
@@ -79,3 +80,32 @@ export let Layout = (props) => {
         <footer></footer>
     </LayoutContainer>
 }
+
+export let ClearButton = styled.button`
+  outline:0;
+  border:0;
+  background-color:transparent;
+  font-size:1em;
+  display:block;
+`
+
+export let SvgButton = styled(ReactSVG)`
+  & svg{
+    width: ${({theme}) => theme.dims.circle.small };
+    height: ${({ theme }) => theme.dims.circle.small };
+    display:inline-block;
+    vertical-align: bottom;
+  }
+  background-color: ${({theme, active}) => active ? theme.colors.accent : theme.colors.dark };
+  cursor: pointer;
+  border-radius: 50%;
+  width: ${({ theme }) => theme.dims.circle.medium};
+  height: ${({ theme }) => theme.dims.circle.medium};
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom: ${({ theme }) => theme.dims.margin.intersection};
+  & path {
+    fill: ${({ theme }) => theme.colors.white } !important;
+  }
+`;

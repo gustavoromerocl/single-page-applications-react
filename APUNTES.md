@@ -255,3 +255,7 @@ Es posible definir un tema para alojar todos los estilos principales del layout 
 **Layout de la app**
 
 El layout es el template base sobre el que se cargará la app, ene ste caso mediante la propiedad grid-template-rows alineamos el nav y footer
+
+**Botones del vídeo**
+
+npm install react-svg

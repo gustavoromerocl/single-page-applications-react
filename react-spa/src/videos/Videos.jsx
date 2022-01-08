@@ -16,17 +16,13 @@ let Videos = (props) => {
         )
     },[]);
 
-    let doLike = (videoId) => {
-        dispatch(
-            likeVideo(videoId)
-        )
-    }
+
 
     return (
         <div>
             <SmallContainer>
                     {videosState.data.videos.map(video => (
-                        <Video video={video} doLike={doLike}/>
+                        <Video video={video}/>
                     ))
                     }
             </SmallContainer>

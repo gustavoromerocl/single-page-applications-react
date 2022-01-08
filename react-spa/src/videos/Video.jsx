@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
+import { LikeButton } from './LikeButton';
 import Player from './Player';
+import { ShareButton } from './ShareButton';
 
 let VideoContainer = styled.div`
   position:relative;
@@ -36,12 +38,13 @@ let VideoContainer = styled.div`
   }
 `;
 
-export const Video = ({video, doLike}) => {
+export const Video = ({video}) => {
     return (
             <VideoContainer key={video.id}>
                 <div className='info'>
                     <aside className='sidebar'>
-                        <button onClick={() => doLike(video.id)} style={{backgroundColor: (video.isLikedByCurrentUser ? 'red' : 'inherit')}}>Like</button>
+                        <LikeButton video={video}/>
+                        <ShareButton />
                     </aside>
                     <div className='user-info'>
                         <h2>{video.title}</h2>
