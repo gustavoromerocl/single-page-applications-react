@@ -24,7 +24,8 @@ import { VideoShow } from './videos/VideoShow';
 import { Profile } from './users/Profile';
 import { Home } from './Home';
 import { ThemeProvider } from 'styled-components';
-import theme, { Layout } from './theme';
+import theme from './theme';
+import Layout from './components/Layout';
 
 let NotImplemented = () => {
   return (

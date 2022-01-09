@@ -49,19 +49,17 @@ export default {
     }
   }
 
-let LayoutContainer = styled.div`
+  export let LayoutContainer = styled.div`
     display: grid;
     min-height: 100vh;
     grid-template-rows: auto minmax(0,1fr) auto;
 
     & nav{
-        height: 100px;
-        background-color: ${({theme}) => theme.colors.dark };
+
     }
 
     & footer{
-        height: 100px;
-        background-color: ${({theme}) => theme.colors.dark };
+
     }
 `;
 
@@ -71,15 +69,7 @@ export let SmallContainer = styled.div`
     margin: 0 auto;
 `;
 
-export let Layout = (props) => {
-    return <LayoutContainer>
-        <nav></nav>
-        <main>
-            {props.children}
-        </main>
-        <footer></footer>
-    </LayoutContainer>
-}
+
 
 export let ClearButton = styled.button`
   outline:0;
@@ -108,4 +98,14 @@ export let SvgButton = styled(ReactSVG)`
   & path {
     fill: ${({ theme }) => theme.colors.white } !important;
   }
+`;
+
+export let Title = styled.h1`
+  font-size:${({theme}) => theme.dims.fonts.medium };
+  font-weight:bold;
+  display:inline-block;
+  margin-block-start:0;
+  margin-block-end:0;
+  margin-left:${({theme}) => theme.dims.margin.intersection };
+  vertical-align: middle;
 `;
