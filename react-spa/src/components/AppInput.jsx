@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 
-let Fieldset = styled.fieldset`
+export let Fieldset = styled.fieldset`
   border:0;
   max-width:${({theme}) => theme.dims.widths.forms };
   display:block;

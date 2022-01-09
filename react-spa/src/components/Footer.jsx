@@ -59,11 +59,11 @@ let SimpleFooterContainer = styled.footer`
   text-align: center;
 `;
 
-let LoggedInFooter = () => <SimpleFooterContainer>
+let LoggedInFooter = () => <FooterContainer>
   <Link to="/videos">Home</Link>
   <FABButton to="/videos/nuevo"> + </FABButton>
   <Link to="/usuarios/miperfil">Perfil</Link>
-</SimpleFooterContainer>;
+</FooterContainer>;
 
 let LoggedOutFooter = () => <SimpleFooterContainer>
   <Routes>
