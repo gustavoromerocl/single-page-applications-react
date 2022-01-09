@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Link, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 
 let FooterContainer = styled.footer`
@@ -52,15 +53,32 @@ let FABButton = styled(Link)`
   }
 `;
 
-const Footer = () => {
-    return (
-        <FooterContainer>
-            <Link to="/videos">Home</Link>
-            <FABButton to="/videos/nuevo"> + </FABButton>
-            <Link to="/usuarios/miperfil">Perfil</Link>
+let SimpleFooterContainer = styled.footer`
+  background-color: ${({ theme }) => theme.colors.gray};
+  padding: ${({ theme }) => theme.dims.padding.largePadding };
+  text-align: center;
+`;
 
-        </FooterContainer>
-    )
+let LoggedInFooter = () => <SimpleFooterContainer>
+  <Link to="/videos">Home</Link>
+  <FABButton to="/videos/nuevo"> + </FABButton>
+  <Link to="/usuarios/miperfil">Perfil</Link>
+</SimpleFooterContainer>;
+
+let LoggedOutFooter = () => <SimpleFooterContainer>
+  <Routes>
+    <Route path="/usuarios/registro" element={<p>¿Ya tienes cuenta? <Link to="/usuarios/login">Iniciar sesión</Link></p>} />
+    <Route path="/usuarios/login" element={<p>¿No tienes cuenta? <Link to="/usuarios/registro">Crea una cuenta</Link></p>} />
+  </Routes>
+  
+</SimpleFooterContainer>;
+
+const Footer = () => {
+  let user = useSelector(state => state.user.user)
+
+  return (
+    user ? <LoggedInFooter /> : <LoggedOutFooter />
+  )
 }
 
 export default Footer

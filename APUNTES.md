@@ -263,3 +263,7 @@ npm install react-svg
 **Formulario de inicio de sesión**
 
 Los componentes funcionales no pueden recibir referencias, por este motivo es que la referencia se llama directamente desde el input a traves de las props
+
+**Mostrar navegación y footer condicionalmente**
+
+Podemos usar react router para sobrescribir el componente segun la ruta. También podemos validar que el usuario este iniciado en el store de redux para desplegar la información
