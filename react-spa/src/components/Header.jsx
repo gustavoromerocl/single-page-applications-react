@@ -7,7 +7,7 @@ import { Title } from '../theme';
 const Header = (props) => {
     return (
         <header className={props.className}>
-            <img src='logo.svg' height={45}></img>
+            <img src='/logo.svg' height={45}></img>
             <Title>TikTak</Title>
         </header>
     )

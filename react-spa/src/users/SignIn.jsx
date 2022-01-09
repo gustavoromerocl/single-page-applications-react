@@ -2,6 +2,9 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { signIn } from '../store/user';
+import UserFormLayout from './UserFormLayout';
+import AppInput from '../components/AppInput';
+import { AppButton } from '../theme';
 
 let SignIn = (props) => {
     let dispatch = useDispatch();
@@ -17,13 +20,14 @@ let SignIn = (props) => {
     }
 
     return (
-        <div>
+        <UserFormLayout>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <input type="email" {...register('email')} name="email" placeholder='Correo electrónico' />
-                <input type="password" {...register('password')} name="password" placeholder='Contraseña' />
-                <input type="submit" value="Enviar" />
+                <AppInput type="email" register={register} registerName={'email'} name="email" label='Correo electrónico' />
+                <AppInput type="password" register={register} registerName={'password'} name="password" label='Contraseña' />
+                <AppButton type="submit" small>Enviar</AppButton>
+                
             </form>
-        </div>
+        </UserFormLayout>
     )
 }
 

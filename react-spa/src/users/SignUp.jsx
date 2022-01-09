@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUp } from '../store/user'
+import UserFormLayout from './UserFormLayout';
 
 let SignUp = (props) => {
     let dispatch = useDispatch();
@@ -20,8 +21,11 @@ let SignUp = (props) => {
 
     return(
         <div>
-            {
+            {   
+                <>
+                <UserFormLayout />
                 <button onClick={doSignUp}>Ingresar</button>
+                </>
             }
         </div>
     )

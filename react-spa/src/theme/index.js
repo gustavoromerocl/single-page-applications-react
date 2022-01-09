@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { ReactSVG } from 'react-svg';
 
 export default {
@@ -48,6 +48,10 @@ export default {
       depth3: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
     }
   }
+
+  export let GlobalStyles = createGlobalStyle`
+    *{box.sizing: border-box};
+  `;
 
   export let LayoutContainer = styled.div`
     display: grid;
@@ -108,4 +112,33 @@ export let Title = styled.h1`
   margin-block-end:0;
   margin-left:${({theme}) => theme.dims.margin.intersection };
   vertical-align: middle;
+`;
+
+export let CenteredContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+`;
+
+export let AppButton = styled.button`
+  background-color: ${({ theme }) => theme.colors.accent};
+  border-radius: ${({ theme }) => theme.dims.borderRadius.normal};
+  padding: ${({ theme }) => theme.dims.padding.largePadding};
+  box-shadow: ${({ theme }) => theme.shadows.depth1};
+  margin-top: ${({theme}) => theme.dims.margin.normal };
+  font-size: 1em;
+  color: ${({ theme }) => theme.colors.white};
+  width: ${({ fullWidth, small, theme }) => {
+    if (fullWidth) return '100%';
+    if (small) return theme.dims.widths.forms
+    return 'auto'
+  }};
+  cursor: pointer;
+  border: none;
+  &:hover{
+    opacity:0.8;
+    box-shadow: ${({ theme }) => theme.shadows.depth2};
+  }
 `;

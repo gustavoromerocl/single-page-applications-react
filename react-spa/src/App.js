@@ -24,7 +24,7 @@ import { VideoShow } from './videos/VideoShow';
 import { Profile } from './users/Profile';
 import { Home } from './Home';
 import { ThemeProvider } from 'styled-components';
-import theme from './theme';
+import theme, { GlobalStyles } from './theme';
 import Layout from './components/Layout';
 
 let NotImplemented = () => {
@@ -77,6 +77,7 @@ function App() {
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             <ThemeProvider theme={theme}>
+              <GlobalStyles />
               <Layout>
                 <Routes>
                   <Route path="/" element={<Home />} />

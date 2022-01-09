@@ -259,3 +259,7 @@ El layout es el template base sobre el que se cargará la app, ene ste caso medi
 **Botones del vídeo**
 
 npm install react-svg
+
+**Formulario de inicio de sesión**
+
+Los componentes funcionales no pueden recibir referencias, por este motivo es que la referencia se llama directamente desde el input a traves de las props
