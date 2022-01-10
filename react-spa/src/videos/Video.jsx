@@ -9,11 +9,9 @@ let VideoContainer = styled.div`
   padding-bottom:177%;
   margin-bottom:${({ theme }) => theme.dims.margin.normal};
   background-color: ${({ theme }) => theme.colors.black};
-  
   & iframe{
     z-index:1;
   }
-
   & .info{
     position:absolute;
     z-index:2;
@@ -38,20 +36,21 @@ let VideoContainer = styled.div`
   }
 `;
 
-export const Video = ({video}) => {
+export const Video = ({video, index}) => {
     return (
-            <VideoContainer key={video.id}>
-                <div className='info'>
-                    <aside className='sidebar'>
-                        <LikeButton video={video}/>
-                        <ShareButton />
-                    </aside>
-                    <div className='user-info'>
-                        <h2>{video.title}</h2>
-                    </div>
-                </div>
-                <Player video={video}/>
-                
-            </VideoContainer>
+      <VideoContainer key={index}>
+      
+      <div className="info">
+        <aside className="sidebar">
+          <LikeButton video={video}></LikeButton>
+          <ShareButton></ShareButton>
+        </aside>
+        <div className="user-info">
+          <h2>{video.title}</h2>
+        </div>
+      </div>
+      <Player video={video}></Player>
+      
+    </VideoContainer>
     )
 }

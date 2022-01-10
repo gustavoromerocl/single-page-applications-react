@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams} from 'react-router-dom'
 import { getVideo } from '../store/videos';
-import Player from './Player';
 import { Video } from './Video';
+import { SmallContainer } from '../theme';
 
 export const VideoShow = () => {
     let { id } = useParams();
@@ -17,10 +17,11 @@ export const VideoShow = () => {
     }, [])
     return (
         <div>
-            {   
-                video &&         
-                <Video video={video} />
-            }
+            <SmallContainer>
+                {   
+                    video && <Video video={video}></Video>
+                }
+            </SmallContainer>
         </div>
     )
 }

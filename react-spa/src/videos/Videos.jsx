@@ -21,8 +21,8 @@ let Videos = (props) => {
     return (
         <div>
             <SmallContainer>
-                    {videosState.data.videos.map(video => (
-                        <Video video={video}/>
+                    {videosState.data.videos.map((video, index) => (
+                        <Video video={video, index}/>
                     ))
                     }
             </SmallContainer>
