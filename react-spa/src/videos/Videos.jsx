@@ -6,6 +6,7 @@ import { loadVideos } from '../store/videos';
 import { SmallContainer } from '../theme';
 import { Video } from './Video';
 
+
 let Videos = (props) => {
     let videosState = useSelector(state => state.videos);
     let dispatch = useDispatch();
@@ -22,7 +23,7 @@ let Videos = (props) => {
         <div>
             <SmallContainer>
                     {videosState.data.videos.map((video, index) => (
-                        <Video video={video, index}/>
+                        <Video video={video} index={index}/>
                     ))
                     }
             </SmallContainer>

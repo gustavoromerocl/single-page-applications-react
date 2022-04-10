@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import { ReactSVG } from 'react-svg';
+import devices from '../theme/breakpoints';
 
 export default {
     colors: {
@@ -14,7 +15,9 @@ export default {
     dims: {
       widths: {
         small: '30em',
-        forms: '17.5em'
+        medium: '40em',
+        forms: '17.5em',
+        smallControls: '10em',
       },
       padding: {
         largePadding: '0.8em 1.2em',
@@ -68,9 +71,13 @@ export default {
 `;
 
 export let SmallContainer = styled.div`
-    width: ${({theme}) => theme.dims.widths.small };
-    max-width: 100vw;
-    margin: 0 auto;
+  width: ${({theme}) => theme.dims.widths.small };
+  max-width: 100vw;
+  margin: 0 auto;
+  
+  @media (${devices.mediumLaptop}){
+    width: ${({theme}) => theme.dims.widths.medium };
+  }
 `;
 
 

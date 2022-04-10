@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { LikeButton } from './LikeButton';
 import Player from './Player';
 import { ShareButton } from './ShareButton';
+import devices from '../theme/breakpoints';
 
 let VideoContainer = styled.div`
   position:relative;
@@ -34,23 +35,59 @@ let VideoContainer = styled.div`
     & aside.sidebar{ grid-area: sidebar; }
     & .user-info{ grid-area: info; align-self: middle; }
   }
+
+  @media ${devices.mediumLaptop} {
+    background-color: transparent;
+    display: flex;
+    padding-bottom: 0;
+
+    & .player-container {
+      flex: 1;
+      padding-bottom: 177%;
+      position: relative;
+      order: 0;
+    }
+
+    & .info {
+      position: relative;
+      width: ${ ({theme}) => theme.dims.widths.smallControls};
+      order: 1;
+      grid-template-areas: 'sidebar sidebar'
+                            ' info info ';
+    }
+
+    & .sidebar{
+      display: flex;
+    }
+  }
 `;
 
-export const Video = ({video, index}) => {
+let PaddingContainer = styled.div`
+  padding-bottom: ${( {theme} ) => theme.dims.padding.mediumPadding };
+`;
+
+export const Video = ({video, index, style}) => {
     return (
-      <VideoContainer key={index}>
+      <PaddingContainer style={style}>
+        <VideoContainer key={index}>
+        
+          <div className="info">
+            <aside className="sidebar">
+              <LikeButton video={video}></LikeButton>
+              <ShareButton></ShareButton>
+            </aside>
+            <div className="user-info">
+              <h2>{video.title}</h2>
+            </div>
+          </div>
+
+          <div className="player-container">
+            <Player video={video}></Player>
+          </div>
       
-      <div className="info">
-        <aside className="sidebar">
-          <LikeButton video={video}></LikeButton>
-          <ShareButton></ShareButton>
-        </aside>
-        <div className="user-info">
-          <h2>{video.title}</h2>
-        </div>
-      </div>
-      <Player video={video}></Player>
       
-    </VideoContainer>
+        </VideoContainer>
+      </PaddingContainer>
+
     )
 }
