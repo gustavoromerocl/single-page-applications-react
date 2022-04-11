@@ -291,3 +291,11 @@ Ejecutar:
 - npm run build
 - acceder a carpeta build y ejecutar el servidor de node static
 - se modifica ruta base
+
+**Deploy a firebase hosting**
+
+- abrir la consola de firebase desde la pagina oficial y crear un nuevo poryecto
+- npm install -g firebase-tools
+- firebase login
+- firebase init
+- firebase deploy
