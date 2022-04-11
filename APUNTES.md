@@ -283,3 +283,11 @@ npm install env-cmd
 - modificar el script del package.json para start y build
 - Agregar o modificar de gitignore las variables de entorno
 - Instalar ngrok para servir la apirest
+
+**Generar el build**
+
+Ejecutar:
+
+- npm run build
+- acceder a carpeta build y ejecutar el servidor de node static
+- se modifica ruta base

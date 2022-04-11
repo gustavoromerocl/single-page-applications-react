@@ -36,7 +36,7 @@ const AppRoutes = () => {
 
     return (
         <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Navigate to="/videos"/>} />
             <Route path="*" element={<Error404 />} />
 
             <Route path="/usuarios" element={user ? <Navigate to="/videos"/> : <Outlet />}>
