@@ -267,3 +267,19 @@ Los componentes funcionales no pueden recibir referencias, por este motivo es qu
 **Mostrar navegación y footer condicionalmente**
 
 Podemos usar react router para sobrescribir el componente segun la ruta. También podemos validar que el usuario este iniciado en el store de redux para desplegar la información
+
+# Deploy a producción
+
+**Media queries con styled components**
+
+Es posible definir con js los breakpoints para desplegar nuestra app en distintos dispositivos y usarlo con styeld components.
+
+**Manejo de variables de entorno**
+
+npm install env-cmd 
+
+- Crear archivo .env para desarrollo y produccion
+- modificar la configuracion de la api
+- modificar el script del package.json para start y build
+- Agregar o modificar de gitignore las variables de entorno
+- Instalar ngrok para servir la apirest
